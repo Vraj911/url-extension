@@ -2,9 +2,6 @@ const express= require('express');
 const router= express.Router();
 const {generate} = require('../controller/controller.js');
 const Url = require('../models/url.js');
-router.get('/',(req,res)=>{
-    res.send("welcome");
-});
 router.post('/', generate);
 router.get('/:shortUrl', async (req, res) => {
     const shortUrl = req.params.shortUrl;
