@@ -3,6 +3,10 @@ const router= express.Router();
 const {generate} = require('../controller/controller.js');
 const Url = require('../models/url.js');
 router.post('/', generate);
+router.get('/', (req, res) => {
+    res.send("URL Shortener Backend is working ✅");
+});
+
 router.get('/:shortUrl', async (req, res) => {
     const shortUrl = req.params.shortUrl;
 
