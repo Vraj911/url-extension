@@ -7,7 +7,8 @@ const features = [
   "Analytics to track link performance",
   "Easy integration with your applications",
   "Secure and reliable service",
-  "User-friendly interface"
+  "User-friendly interface",
+  "Allows sharing links via social media" // New feature
 ];
 
 const Features = () => {
@@ -20,8 +21,8 @@ const Features = () => {
         {features.map((feature, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 1.3 }}
             className="feature-card"
           >

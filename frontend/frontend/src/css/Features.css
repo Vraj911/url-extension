@@ -1,36 +1,41 @@
 .features-container {
   padding: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  text-align: center;
   color: rgba(199, 190, 202, 1);
 }
 
 .features-title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  color: rgb(149, 149, 247);
+  margin-bottom: 0.5rem;
 }
 
-.features-subtext {
-  margin-bottom: 2rem;
+.features-subtext,
+.features-footer {
+  font-size: 1.1rem;
+  margin: 1rem 0;
 }
 
 .features-scroll {
   display: flex;
-  overflow-x: auto;
+  flex-direction: column; /* Stack vertically */
+  align-items: center;
   gap: 1rem;
-  padding-bottom: 1rem;
+  margin: 2rem 0;
 }
 
 .feature-card {
-  min-width: 250px;
-  background: rgba(52, 24, 103, 0.9);
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  color: white;
-  flex-shrink: 0;
+  background-color: rgba(103, 96, 117, 0.7);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  color: #fff;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
-.features-footer {
-  margin-top: 2rem;
+.feature-card:hover {
+  transform: scale(1.03);
 }
