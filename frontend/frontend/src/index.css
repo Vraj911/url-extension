@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {  
+  background: linear-gradient(90deg, #0f2b5dff, #2e1049ff); 
+  font-family: Arial, sans-serif;
+}

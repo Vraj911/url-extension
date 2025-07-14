@@ -1,0 +1,36 @@
+.features-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: rgba(199, 190, 202, 1);
+}
+
+.features-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.features-subtext {
+  margin-bottom: 2rem;
+}
+
+.features-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.feature-card {
+  min-width: 250px;
+  background: rgba(52, 24, 103, 0.9);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: white;
+  flex-shrink: 0;
+}
+
+.features-footer {
+  margin-top: 2rem;
+}
