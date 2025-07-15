@@ -1,50 +1,81 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom right, #1e1e6e, #320b5d);
-  color: rgba(199, 190, 202, 1);
-  min-height: 100vh;
-}
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #1e1e6e, #320b5d);
+    color: rgba(199, 190, 202, 1);
+    min-height: 100vh;
+  }
 
-.result-wrapper {
-  text-align: center;
-  padding: 2rem;
-}
+  .result-wrapper {
+    text-align: center;
+    padding: 2rem;
+  }
 
-.result-wrapper h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: rgb(149, 149, 247);
-}
+  .result-wrapper h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: rgb(149, 149, 247);
+  }
 
-.shortened-url {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
+  .shortened-url {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .shortened-url input {
+    padding: 0.75rem;
+    font-size: 1rem;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #ffffff;
+    color: #333;
+  }
+  .shortened-url button {
+    padding: 0.75rem 1.5rem;
+    background-color: rgba(91, 140, 209, 0.8);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .shortened-url button:hover {
+    background-color: rgb(107, 48, 215);
+  }
+  .share-container {
+    margin-top: 2rem;
+    text-align: center;
+    color: rgba(199, 190, 202, 1);
+  }
+  .share-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: rgb(149, 149, 247);
+  }
+  .share-buttons {
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.9rem;
+    margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
 
-.shortened-url input {
-  padding: 0.75rem;
-  font-size: 1rem;
-  width: 300px;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  background-color: #ffffff;
-  color: #333;
-}
+  }
+  .share-buttons button {
+    background-color: rgba(91, 140, 209, 0.8);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
 
-.shortened-url button {
-  padding: 0.75rem 1.5rem;
-  background-color: rgba(52, 24, 103, 1);
-  color: white;
-  border: none;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.shortened-url button:hover {
-  background-color: rgba(52, 24, 103, 0.8);
-}
+  .share-buttons button:hover {
+    background-color: rgb(107, 48, 215);
+    transform: scale(1.05);
+  }

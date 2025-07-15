@@ -8,14 +8,16 @@ body {
   text-align: center;
   padding: 2rem;
 }
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-    color: rgb(149, 149, 247);
-
+.gradient-text {
+  background: linear-gradient(45deg, #8b49f6, #a6b4ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
-
+.home-wrapper h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+} 
 h3 {
   font-size: 1.2rem;
   margin-bottom: 2rem;
@@ -50,4 +52,82 @@ h3 {
 
 .container button:hover {
   background-color: rgba(52, 24, 103, 0.8);
+}
+.testimonials {
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
+  color: rgba(199, 190, 202, 1);
+}
+
+.testimonials h3 {
+  font-size: 2rem;
+  color: #6694f7ff;
+  margin-bottom: 1.5rem;
+}
+.testimonial-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.testimonial-card {
+    background-color: rgba(91, 140, 209, 0.8);
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 300px;
+  min-width: 250px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+.testimonial-card p {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+.testimonial-card span {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+.stats {
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
+  color: rgba(199, 190, 202, 1);
+}
+.stats h3 {
+  font-size: 2rem;
+  color: #6694f7ff;
+    margin-bottom: 1.5rem;
+}
+.stat-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.stat-card {
+    background-color: rgba(91, 140, 209, 0.8);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  min-width: 220px;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+.stat-card h4 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.stat-card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(173, 216, 230);
 }
