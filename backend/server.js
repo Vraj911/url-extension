@@ -3,12 +3,17 @@
     const connectDB = require('./configure.js');
     const route = require('./routes/route.js');
     const dotenv = require('dotenv');
+    const cors = require('cors');
     dotenv.config();
     connectDB().then(() => {
         console.log('Database connected successfully');
     }).catch((err) => {
         console.error('Database connection failed:', err);
     });
+     app.use(cors({
+        origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+        methods: ['GET', 'POST'],
+        credentials: true,}));
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use("/url", route);
