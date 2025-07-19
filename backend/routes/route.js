@@ -42,14 +42,22 @@ router.get('/stats', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
-router.get('/getshorturl', async (req, res) => {
-  const { originalUrl } = req.query; // ✅ Use query for GET
+router.post('/getshorturl', async (req, res) => {
+  let originalUrl  = req.body.originalUrl;
 
   if (!originalUrl) return res.status(400).json({ error: "Original URL is required" });
 
+  originalUrl = decodeURIComponent(originalUrl);
+
+  console.log("🔍 Received originalUrl:", originalUrl);
+
   try {
     const entry = await Url.findOne({ originalUrl });
-    if (!entry) return res.status(404).json({ error: "URL not found" });
+
+    if (!entry) {
+      console.log("❌ No match found in DB for:", originalUrl);
+      return res.status(404).json({ error: "URL not found" });
+    }
 
     return res.json({ shortUrl: entry.shortUrl });
   } catch (error) {

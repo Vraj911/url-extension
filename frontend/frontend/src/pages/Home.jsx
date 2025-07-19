@@ -11,6 +11,7 @@ const Home = () => {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}url/`, {
         originalUrl: longUrl,
       });
+      
 navigate("/result", { state: { originalUrl: longUrl } });
     } catch (error) {
       console.error("Error shortening URL:", error);

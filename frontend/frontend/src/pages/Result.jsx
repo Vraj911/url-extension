@@ -16,19 +16,22 @@ const Result = () => {
       navigate("/");
       return;
     }
-    const fetchShortUrl = async () => {
-      try {
-        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}url/getshorturl`, {
-          params: { originalUrl }
-        });
-        const fullUrl = `${import.meta.env.VITE_BACKEND_URL}${response.data.shortUrl}`;
-        setShortUrl(fullUrl);
-      } catch (error) {
-        console.error("Failed to fetch short URL", error);
-        alert("Something went wrong. Try again.");
-        navigate("/");
-      }
-    };
+   const fetchShortUrl = async () => {
+  try {
+    const response = await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}url/getshorturl`,
+      { originalUrl } 
+    );
+    const fullUrl = `${import.meta.env.VITE_BACKEND_URL}${response.data.shortUrl}`;
+    console.log("Requesting:", `${import.meta.env.VITE_BACKEND_URL}url/getshorturl`);
+    setShortUrl(fullUrl);
+  } catch (error) {
+    console.error("Failed to fetch short URL", error);
+    alert("Something went wrong. Try again.");
+    navigate("/");
+  }
+};
+
     fetchShortUrl();
   }, [originalUrl, navigate]);
   const handleCopy = () => {
