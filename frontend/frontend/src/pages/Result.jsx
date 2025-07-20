@@ -66,6 +66,23 @@ const Result = () => {
           <button title="Share on Snapchat" onClick={() => window.open(`https://www.snapchat.com/share?text=${encodeURIComponent(shortUrl)}`, '_blank')}><FaSnapchatGhost /></button>
         </div>
       </div>
+      <div className="preview">
+        <h3>Preview:</h3>
+        <iframe
+          src={shortUrl}
+          title="URL Preview"
+          width="100%"
+          height="500px"
+          frameBorder="0"
+          sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+          allowFullScreen
+        ></iframe>
+        <p className="preview-note">
+          Note: Some websites may not allow embedding in iframes.</p>
+      </div>
+      <div className="back-button">
+        <button onClick={() => navigate("/")}>Go Back</button>
+        </div>
     </div>
   );
 };

@@ -8,6 +8,9 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Howitworks from './pages/Howitworks';
 import Result from './pages/Result';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Landing from './pages/Landing';
 function App() {
   return (
     <>
@@ -15,11 +18,13 @@ function App() {
       <Routes>
         <Route path="/contact" element={<Contacts />} />
         <Route path="/features" element={<Features />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing/>} />
         <Route path="/howitworks" element={<Howitworks />} />
         <Route path="/result" element={<Result />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
-
+<Footer />
     </>
   );
 }

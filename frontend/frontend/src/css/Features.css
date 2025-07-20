@@ -39,3 +39,17 @@
 .feature-card:hover {
   transform: scale(1.03);
 }
+.nav-button {
+  flex: 1;
+  padding: 10px;
+}
+
+.back-home {
+  margin-top: 40px;
+  width: 100%;
+  background-color: #444;
+}
+
+.back-home:hover {
+  background-color: #222;
+}

@@ -1,17 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "../css/Features.css"; 
-
+import { useNavigate } from "react-router-dom";
 const features = [
   "Customizable short links",
   "Analytics to track link performance",
   "Easy integration with your applications",
   "Secure and reliable service",
   "User-friendly interface",
-  "Allows sharing links via social media" // New feature
+  "Allows sharing links via social media" 
 ];
-
 const Features = () => {
+  const navigate = useNavigate();
   return (
     <div className="features-container">
       <h1 className="features-title">Features</h1>
@@ -30,9 +30,13 @@ const Features = () => {
           </motion.div>
         ))}
       </div>
-
-      <p className="features-footer">Experience the convenience and efficiency of Shortify!</p>
-    </div>
+ <button
+                type="button"
+                className="nav-button back-home"
+                onClick={() => navigate('/')}
+            >
+                Back to Home
+            </button>    </div>
   );
 };
 
