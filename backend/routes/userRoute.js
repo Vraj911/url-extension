@@ -2,6 +2,7 @@ const express= require('express');
 const router= express.Router();
 const {generate} = require('../controller/controller.js');
 const Url = require('../models/url.js');
+const Contact = require('../models/contact.js');
 const Stats = require('../models/stats.js');
 router.post('/', generate);
 router.get('/', (req, res) => {
@@ -66,5 +67,20 @@ router.post('/getshorturl', async (req, res) => {
   }
 });
 
-
+router.post('/contact', async (req, res) => {
+    const { name, email, message } = req.body;
+    if (!name || !email || !message) {
+        return res.status(400).json({ error: "All fields are required" });
+    }
+    try {
+        const newContact = new Contact({ name, email, message });
+        await newContact.save();
+        
+        console.log("Contact form submitted:", { name, email, message });
+        res.status(200).json({ message: "Contact form submitted successfully" });
+    } catch (error) {
+        console.error("Error handling contact form:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
 module.exports = router;

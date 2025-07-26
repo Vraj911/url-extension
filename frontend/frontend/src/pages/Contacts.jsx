@@ -1,51 +1,87 @@
 import React, { useState } from 'react';
 import Header from '../components/Header.jsx';
+import '../css/Contacts.css';
+import { useNavigate } from 'react-router-dom';
+
 const Contacts = () => {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
+
   const handleChange = (e) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form Submitted:', formData);
-    alert("Message sent!");
-    setFormData({ name: '', email: '', message: '' }); 
+    try {
+      const response = await fetch(`${BACKEND_URL}url/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Message sent!");
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error || "Something went wrong");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to send message");
+    }
   };
+
   return (
     <>
-      <div style={{ padding: "2rem", maxWidth: "600px", margin: "0 auto", color:"rgba(199, 190, 202, 1)" }}>
-        <h1>Contact Us</h1>
-        <p>If you have any questions or feedback, feel free to reach out!</p>
+      <div className="contact-container">
+        <h1 className="contact-heading">Contact Us</h1>
+        <p className="contact-subtext">If you have any questions or feedback, feel free to reach out!</p>
 
-        <form onSubmit={handleSubmit} style={{ marginTop: "2rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <input type="text" name="name" value={formData.name} placeholder="Your Name" onChange={handleChange} required style={{ padding: "0.75rem", fontSize: "1rem" }}/>
-    <input type="text" name="name" value={formData.email} placeholder="Your Name" onChange={handleChange} required style={{ padding: "0.75rem", fontSize: "1rem" }}/>
-          <textarea  name="message"  value={formData.message} placeholder="Your Message" onChange={handleChange} rows="5" required
-            style={{ padding: "0.75rem", fontSize: "1rem", resize: "vertical" }}/>
-          <button
-  type="submit"
-  style={{
-    padding: "0.75rem",
-    background: "rgba(52, 24, 103, 1)",
-    color: "white",
-    fontSize: "1rem",
-    border: "1px solid white", 
-    cursor: "pointer"
-  }}
->
-  Send Message
-</button>
-
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <input
+            className="contact-input"
+            type="text"
+            name="name"
+            value={formData.name}
+            placeholder="Your Name"
+            onChange={handleChange}
+            required
+          />
+          <input
+            className="contact-input"
+            type="email"
+            name="email"
+            value={formData.email}
+            placeholder="Your Email"
+            onChange={handleChange}
+            required
+          />
+          <textarea
+            className="contact-textarea"
+            name="message"
+            value={formData.message}
+            placeholder="Your Message"
+            onChange={handleChange}
+            rows="5"
+            required
+          />
+          <button className="contact-button" type="submit">Send Message</button>
         </form>
       </div>
     </>
   );
 };
+
 export default Contacts;
