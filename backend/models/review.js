@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const contactSchema = new mongoose.Schema({
+const reviewSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -10,7 +10,7 @@ const contactSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    message: {
+    review: {
         type: String,
         required: true,
         trim: true
@@ -20,5 +20,5 @@ const contactSchema = new mongoose.Schema({
         default: Date.now
     }
 });
-const Contact = mongoose.model('Contact', contactSchema);
+const Contact = mongoose.model('Review', reviewSchema,'review');
 module.exports = Contact;

@@ -1,0 +1,35 @@
+.share-container {
+  margin-top: 2rem;
+  text-align: center;
+  color: rgba(199, 190, 202, 1);
+}
+
+.share-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: rgb(149, 149, 247);
+}
+
+.share-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 0.9rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.share-buttons button {
+  background-color: rgba(91, 140, 209, 0.8);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.share-buttons button:hover {
+  background-color: rgb(107, 48, 215);
+  transform: scale(1.05);
+}

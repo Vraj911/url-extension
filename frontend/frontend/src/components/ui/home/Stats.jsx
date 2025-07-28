@@ -1,20 +1,25 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import "../css/Stats.css";
-
+import "./css/Stats.css";
+import { fetchStats } from "../../../services/statsService";
+import { useAppContext } from "../../../context/AppContext";
 const Stats = () => {
+  const { token } = useAppContext();
   const [stats, setStats] = useState({
     totalUrls: 0,
     totalUsers: 0,
     totalClicks: 0,
   });
-useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}url/stats`)
-      .then((res) => setStats(res.data))
-      .catch((err) => console.error("Error loading stats:", err));
-  }, []);
-
+  useEffect(() => {
+    const loadStats = async () => {
+      try {
+        const data = await fetchStats(token);
+        setStats(data);
+      } catch (err) {
+        console.error("Error loading stats:", err);
+      }
+    };
+    loadStats();
+  }, [token]);
   return (
     <div className="stats">
       <h3>Statistics</h3>
@@ -27,13 +32,8 @@ useEffect(() => {
           <h4>Users Registered</h4>
           <p>{stats.totalUsers}</p>
         </div>
-        <div className="stat-card">
-          <h4>Total Clicks</h4>
-          <p>{stats.totalClicks}</p>
-        </div>
       </div>
     </div>
   );
 };
-
 export default Stats;

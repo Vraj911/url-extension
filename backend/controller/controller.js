@@ -1,6 +1,7 @@
 const Url = require('../models/url.js');
 const Stats = require('../models/stats.js');
 async function generate(req, res) {
+    console.log("📩 Generate API Hit:", req.body); 
     const { nanoid } = await import('nanoid'); 
     const body = req.body;
     if (!body.originalUrl) {
@@ -13,6 +14,8 @@ async function generate(req, res) {
         redirectURL: body.originalUrl,
         visitHistory: []
     });
+        console.log("✅ URL Created:", shortUrl);
+
     await Stats.findOneAndUpdate({}, { $inc: { totalUrls: 1 } }, { upsert: true });
     return res.json({ id: shortUrl, originalUrl: body.originalUrl, redirectURL: body.originalUrl });
 }

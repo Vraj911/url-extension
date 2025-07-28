@@ -1,0 +1,32 @@
+.shortened-url {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.shortened-url input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  width: 300px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.shortened-url button {
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(91, 140, 209, 0.8);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.shortened-url button:hover {
+  background-color: rgb(107, 48, 215);
+}

@@ -1,0 +1,10 @@
+.signup-container h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+.signup-container p {
+  text-align: center;
+  color: #777;
+  margin-bottom: 2rem;
+}

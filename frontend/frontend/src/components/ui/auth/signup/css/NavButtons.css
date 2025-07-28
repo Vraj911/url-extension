@@ -1,0 +1,23 @@
+.full-width {
+  width: 100%;
+  margin-top: 10px;
+}
+.horizontal-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+  margin-top: 15px;
+}
+.horizontal-buttons .nav-button {
+  flex: 1;
+  padding: 10px;
+}
+.back-home {
+  margin-top: 40px;
+  width: 100%;
+  background-color: #444;
+}
+.back-home:hover {
+  background-color: #222;
+}

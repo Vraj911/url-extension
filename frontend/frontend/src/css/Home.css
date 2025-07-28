@@ -22,14 +22,12 @@ h3 {
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
-
 .container {
   display: flex;
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
-
 .container input {
   padding: 0.75rem;
   font-size: 1rem;
@@ -38,7 +36,6 @@ h3 {
   border-radius: 5px;
   outline: none;
 }
-
 .container button {
   padding: 0.75rem 1.5rem;
   background-color: rgba(52, 24, 103, 1);
@@ -49,48 +46,71 @@ h3 {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .container button:hover {
   background-color: rgba(52, 24, 103, 0.8);
 }
-.testimonials {
+.reviews-container {
   margin: 3rem auto;
   padding: 2rem;
   text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
   color: rgba(199, 190, 202, 1);
 }
 
-.testimonials h3 {
+.reviews-container h3 {
   font-size: 2rem;
-  color: #6694f7ff;
+  color: rgb(149, 149, 247);
   margin-bottom: 1.5rem;
 }
-.testimonial-cards {
+
+.reviews-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
 }
-.testimonial-card {
-    background-color: rgba(91, 140, 209, 0.8);
-  color: #fff;
-  padding: 1.5rem;
+
+.review-card {
+  background-color: rgba(91, 140, 209, 0.8);
+  padding: 1.5rem 2rem;
   border-radius: 12px;
+  min-width: 220px;
   max-width: 300px;
-  min-width: 250px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+  text-align: left;
+  color: white;
 }
-.testimonial-card:hover {
+
+.review-card:hover {
   transform: translateY(-5px);
 }
-.testimonial-card p {
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
-}
-.testimonial-card span {
+
+.review-email {
   font-size: 0.9rem;
-  color: #ccc;
+  color: #e0e0e0;
+  margin-bottom: 6px;
 }
 
+.review-text {
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 8px;
+  color: #f5f5f5;
+}
 
+.no-reviews {
+  color: gray;
+  margin-top: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

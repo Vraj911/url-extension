@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../css/Footer.css"; 
-
+import "./css/Footer.css"; 
 const Footer = () => {
   return (
     <footer className="footer">
@@ -10,8 +9,8 @@ const Footer = () => {
         <nav className="footer-links">
           <Link to="/">Home</Link>
           <Link to="/features">Features</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/how-it-works">How It Works</Link>
+          <Link to="/reviews">Reviews</Link>
+          <Link to="/howitworks">How It Works</Link>
         </nav>
         <p className="footer-text">&copy; {new Date().getFullYear()} Shortify. All rights reserved.</p>
       </div>

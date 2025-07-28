@@ -1,0 +1,32 @@
+.signup-container form {
+  width: 100%;
+}
+.signup-container form div {
+  margin-bottom: 1.5rem;
+}
+.signup-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #444;
+  font-weight: 500;
+}
+.signup-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.signup-container button {
+  padding: 10px;
+  background-color: rgba(91, 140, 209, 0.8);
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.signup-container button:hover {
+  background-color: #256ca1;
+}

@@ -1,0 +1,27 @@
+.nav-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nav-button {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(91, 140, 209, 0.8);
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.nav-button:hover {
+  background-color: #256ca1;
+}
+.nav-button.back-home {
+  margin-top: 10px;
+  background-color: #444;
+}
+.nav-button.back-home:hover {
+  background-color: #222;
+}

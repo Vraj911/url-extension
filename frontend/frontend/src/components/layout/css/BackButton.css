@@ -1,0 +1,8 @@
+.back-home {
+  margin-top: 40px;
+  width: 100%;
+  background-color: #444;
+}
+.back-home:hover {
+  background-color: #222;
+}

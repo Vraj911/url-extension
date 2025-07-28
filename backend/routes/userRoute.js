@@ -2,13 +2,40 @@ const express= require('express');
 const router= express.Router();
 const {generate} = require('../controller/controller.js');
 const Url = require('../models/url.js');
-const Contact = require('../models/contact.js');
+const Review = require('../models/review.js');
 const Stats = require('../models/stats.js');
 router.post('/', generate);
 router.get('/', (req, res) => {
     res.send("URL Shortener Backend is working ✅");
 });
-
+router.get('/stats', async (req, res) => {
+    try {
+        const stats = await Stats.findOne();
+        if (!stats) {
+            return res.status(404).json({ error: 'Statistics not found' });
+        }
+ const avgClicks = stats.totalUrls > 0
+    ? Math.round(stats.totalClicks / stats.totalUrls)
+    : 0;
+            res.json({
+            totalUrls: stats.totalUrls,
+            totalUsers: stats.totalUsers,
+            avgClicks: avgClicks
+            });
+    } catch (error) {
+        console.error("Error fetching stats:", error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+router.get('/getreviews', async (req, res) => {
+    try {
+        const reviews = await Review.find().sort({ createdAt: -1 }); 
+        res.json(reviews);
+    } catch (error) {
+        console.error("Error fetching reviews:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
 router.get('/:shortUrl', async (req, res) => {
     const shortUrl = req.params.shortUrl;
 
@@ -31,25 +58,7 @@ try {
     }
     res.redirect(entry.redirectURL); 
 });
-router.get('/stats', async (req, res) => {
-    try {
-        const stats = await Stats.findOne();
-        if (!stats) {
-            return res.status(404).json({ error: 'Statistics not found' });
-        }
- const avgClicks = stats.totalUrls > 0
-    ? Math.round(stats.totalClicks / stats.totalUrls)
-    : 0;
-            res.json({
-            totalUrls: stats.totalUrls,
-            totalUsers: stats.totalUsers,
-            avgClicks: avgClicks
-            });
-    } catch (error) {
-        console.error("Error fetching stats:", error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-});
+
 router.post('/getshorturl', async (req, res) => {
   let originalUrl  = req.body.originalUrl;
 
@@ -73,21 +82,24 @@ router.post('/getshorturl', async (req, res) => {
     return res.status(500).json({ error: "Server error" });
   }
 });
+router.post('/review', async (req, res) => {
+    const { name, email, review } = req.body;
 
-router.post('/contact', async (req, res) => {
-    const { name, email, message } = req.body;
-    if (!name || !email || !message) {
+    if (!name || !email || !review) {
         return res.status(400).json({ error: "All fields are required" });
     }
-    try {
-        const newContact = new Contact({ name, email, message });
-        await newContact.save();
 
-        console.log("Contact form submitted:", { name, email, message });
-        res.status(200).json({ message: "Contact form submitted successfully" });
+    try {
+        const newReview = new Review({ name, email, review });
+        await newReview.save();
+
+        console.log("Review submitted:", { name, email, review });
+        res.status(200).json({ message: "Review submitted successfully" });
     } catch (error) {
-        console.error("Error handling contact form:", error);
+        console.error("Error handling review submission:", error);
         res.status(500).json({ error: "Internal server error" });
     }
 });
+
+
 module.exports = router;

@@ -1,10 +1,10 @@
 import './App.css'
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Contacts from './pages/Contacts';
+import Reviews from './pages/Reviews';
 import Features from './pages/Features';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import Howitworks from './pages/Howitworks';
 import Result from './pages/Result';
@@ -16,7 +16,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/contact" element={<Contacts />} />
+        <Route path="/reviews" element={<Reviews />} />
         <Route path="/features" element={<Features />} />
         <Route path="/" element={<Landing/>} />
         <Route path="/howitworks" element={<Howitworks />} />
