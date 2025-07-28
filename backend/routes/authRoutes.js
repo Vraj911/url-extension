@@ -1,6 +1,7 @@
     const express = require('express');
     const router = express.Router();
     const User = require('../models/users.js');
+    const Stats=require('../models/stats.js');
     const bcrypt = require('bcrypt');
     const jwt = require('jsonwebtoken');
     router.get('/', (req, res) => {
@@ -19,6 +20,13 @@
             const hashedPassword = await bcrypt.hash(password, 10);
             const newUser = new User({ username, email, password: hashedPassword });
             await newUser.save();
+            let stats = await Stats.findOne();
+if (!stats) {
+    stats = new Stats({ totalUsers: 1 });
+} else {
+    stats.totalUsers += 1;
+}
+await stats.save();
             res.status(201).json({ message: "User registered successfully" });
         } catch (error) {
             console.error("Error registering user:", error);
@@ -50,3 +58,4 @@
         res.json({ message: "Logout successful" });
     });
     module.exports = router;
+    

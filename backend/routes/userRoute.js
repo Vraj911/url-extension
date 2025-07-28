@@ -17,11 +17,18 @@ router.get('/:shortUrl', async (req, res) => {
         { $push: { visitHistory: { timestamp: Date.now() } } },
         { new: true }
     );
-
     if (!entry) {
         return res.status(404).send('Short URL not found');
     }
-
+try {
+        const stats = await Stats.findOne();
+        if (stats) {
+            stats.totalClicks += 1;
+            await stats.save();
+        }
+    } catch (err) {
+        console.error("Failed to update totalClicks", err);
+    }
     res.redirect(entry.redirectURL); 
 });
 router.get('/stats', async (req, res) => {
@@ -75,7 +82,7 @@ router.post('/contact', async (req, res) => {
     try {
         const newContact = new Contact({ name, email, message });
         await newContact.save();
-        
+
         console.log("Contact form submitted:", { name, email, message });
         res.status(200).json({ message: "Contact form submitted successfully" });
     } catch (error) {

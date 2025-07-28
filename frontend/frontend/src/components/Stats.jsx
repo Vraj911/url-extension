@@ -8,13 +8,12 @@ const Stats = () => {
     totalUsers: 0,
     totalClicks: 0,
   });
-
- /* useEffect(() => {
+useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}api/stats`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}url/stats`)
       .then((res) => setStats(res.data))
       .catch((err) => console.error("Error loading stats:", err));
-  }, []);*/
+  }, []);
 
   return (
     <div className="stats">
