@@ -3,27 +3,23 @@
   text-align: center;
   color: rgba(199, 190, 202, 1);
 }
-
 .features-title {
   font-size: 2.5rem;
   color: rgb(149, 149, 247);
   margin-bottom: 0.5rem;
 }
-
 .features-subtext,
 .features-footer {
   font-size: 1.1rem;
   margin: 1rem 0;
 }
-
 .features-scroll {
   display: flex;
-  flex-direction: column; /* Stack vertically */
+  flex-direction: column; 
   align-items: center;
   gap: 1rem;
   margin: 2rem 0;
 }
-
 .feature-card {
   background-color: rgba(103, 96, 117, 0.7);
   padding: 1rem 2rem;
@@ -35,7 +31,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
-
 .feature-card:hover {
   transform: scale(1.03);
 }
@@ -43,13 +38,11 @@
   flex: 1;
   padding: 10px;
 }
-
 .back-home {
   margin-top: 40px;
   width: 100%;
   background-color: #444;
 }
-
 .back-home:hover {
   background-color: #222;
 }

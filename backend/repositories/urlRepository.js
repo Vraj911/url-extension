@@ -12,5 +12,4 @@ async function updateVisitHistory(shortUrl) {
 async function findByOriginalUrl(originalUrl) {
     return await Url.findOne({ originalUrl });
 }
-
 module.exports = { createUrl, updateVisitHistory, findByOriginalUrl };

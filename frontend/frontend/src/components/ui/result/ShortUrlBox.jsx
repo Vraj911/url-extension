@@ -6,12 +6,10 @@ const ShortUrlBox = ({ shortUrl }) => {
       .then(() => alert("Short URL copied to clipboard!"))
       .catch(() => alert("Failed to copy. Please try again."));
   };
-
   const handleVisit = () => {
     if (shortUrl) window.open(shortUrl, "_blank");
     else alert("Short URL not available!");
   };
-
   return (
     <div className="shortened-url">
       <input type="text" value={shortUrl} readOnly />
@@ -20,5 +18,4 @@ const ShortUrlBox = ({ shortUrl }) => {
     </div>
   );
 };
-
 export default ShortUrlBox;

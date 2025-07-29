@@ -1,7 +1,6 @@
 const urlService = require('../services/urlService.js');
 const statsRepo = require('../repositories/statsRepository.js');
 const reviewRepo = require('../repositories/reviewRepository.js');
-
 async function generate(req, res) {
     try {
         const result = await urlService.generateUrl(req.body);
@@ -11,7 +10,6 @@ async function generate(req, res) {
         res.status(400).json({ error: error.message });
     }
 }
-
 async function redirect(req, res) {
     try {
         const url = await urlService.getRedirectUrl(req.params.shortUrl);
@@ -20,7 +18,6 @@ async function redirect(req, res) {
         res.status(404).json({ error: error.message });
     }
 }
-
 async function getStats(req, res) {
     try {
         const stats = await statsRepo.getStats();
@@ -38,7 +35,6 @@ async function getStats(req, res) {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
-
 async function getReviews(req, res) {
     try {
         const reviews = await reviewRepo.getReviews();
@@ -48,7 +44,6 @@ async function getReviews(req, res) {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
-
 async function getShortUrl(req, res) {
     try {
         const { originalUrl } = req.body;
@@ -59,7 +54,6 @@ async function getShortUrl(req, res) {
         res.status(error.code || 500).json({ error: error.message });
     }
 }
-
 async function submitReview(req, res) {
     try {
         const { name, email, review } = req.body;
@@ -73,7 +67,6 @@ async function submitReview(req, res) {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
-
 module.exports = { 
     generate, 
     redirect, 

@@ -6,5 +6,4 @@ const LoginHeader = () => (
     <p>This is where users can log in to their accounts.</p>
   </div>
 );
-
 export default LoginHeader;

@@ -1,19 +1,16 @@
 .preview {
   margin-top: 40px;
 }
-
 .preview h3 {
   font-size: 20px;
   margin-bottom: 15px;
 }
-
 .preview-note {
   font-size: 14px;
   color: #888;
   text-align: center;
   margin-top: 10px;
 }
-
 .preview img {
   max-width: 100%;
   height: auto;

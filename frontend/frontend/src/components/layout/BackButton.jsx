@@ -9,5 +9,4 @@ const BackButton = () => {
     </div>
   );
 };
-
 export default BackButton;

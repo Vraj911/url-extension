@@ -4,23 +4,19 @@ body {
   color: rgba(199, 190, 202, 1);
   min-height: 100vh;
 }
-
 .result-wrapper {
   text-align: center;
   padding: 2rem;
 }
-
 .result-wrapper h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: rgb(149, 149, 247);
 }
-
 .back-button {
   text-align: center;
   margin-top: 30px;
 }
-
 .back-button button {
   background-color: rgba(91, 140, 209, 0.8);
   color: white;
@@ -31,7 +27,6 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .back-button button:hover {
   background-color: #256ea8;
 }

@@ -16,7 +16,6 @@ const Features = () => {
     <div className="features-container">
       <h1 className="features-title">Features</h1>
       <p className="features-subtext">Discover the powerful features of our URL shortening service:</p>
-
       <div className="features-scroll">
         {features.map((feature, index) => (
           <motion.div
@@ -24,20 +23,14 @@ const Features = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 1.3 }}
-            className="feature-card"
-          >
+            className="feature-card">
             {feature}
           </motion.div>
         ))}
       </div>
- <button
-                type="button"
-                className="nav-button back-home"
-                onClick={() => navigate('/')}
-            >
-                Back to Home
-            </button>    </div>
+ <button type="button"  className="nav-button back-home"   onClick={() => navigate('/')} >
+        Back to Home
+      </button>    </div>
   );
 };
-
 export default Features;
