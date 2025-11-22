@@ -16,7 +16,7 @@ const swaggerOptions={
  definition: {
         openapi: "3.0.0",
         info: {
-            title: "URL Shortener API",
+            title: "Shortify",
             version: "1.0.0",
             description: "API documentation for URL Shortener backend",
         },
@@ -29,11 +29,23 @@ const swaggerOptions={
 };
 const swaggerSpec=swaggerJsdoc(swaggerOptions);
 app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+const allowedOrigins = [
+  'http://localhost:5173',        
+  'https://url-shortenere.netlify.app', 
+  'http://localhost:3000'
+];
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: ['GET', 'POST'],
     credentials: true,
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
