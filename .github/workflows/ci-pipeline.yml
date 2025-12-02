@@ -1,0 +1,37 @@
+name: shortify-ci
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Backend install
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm install
+
+      # Frontend install
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      # Frontend build (Vite)
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Success message
+        run: echo "CI pipeline completed successfully."
